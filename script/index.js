@@ -39,9 +39,6 @@ function makeListItem() {
         })
 }
 
-function addSortedRequest(){
-
-}
 //Создание описания
 function makeListDescription(n) {
     let dataBase = sendRequest('GET', requestURL);

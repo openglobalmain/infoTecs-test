@@ -1,0 +1,133 @@
+.mainContainer {
+    width: 700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 3fr 6fr;
+    grid-template-rows: 80px 40px repeat(10, 40px);
+}
+
+.cover {
+    width: 700px;
+    padding: 10px;
+    border: 1px solid rebeccapurple;
+    text-align: center;
+    grid-area: 1/1/1/3;
+}
+
+.buttons {
+    margin: 0;
+    border: 1px solid rebeccapurple;
+    grid-area: 2/1/2/3;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.menuButton {
+    padding: 5px 0 0px 0;
+    margin: 0;
+    border: 1px solid rebeccapurple;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.menuButton:hover {
+    background-color: rgba(102, 51, 153, 0.297);
+}
+
+.inPut {
+    width: 110px;
+    height: 18px;
+    border: 0px solid rebeccapurple;
+    border-radius: 3px;
+    outline: none;
+    color: #000000;
+    font-size: 14px;
+}
+
+.list {
+    display: grid;
+}
+
+.listObject {
+    border: 1px solid rebeccapurple;
+    padding: 10px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    /* cursor: move; */
+}
+
+.listObjectDescription {
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(7, 40px);
+    gap: 10px;
+    border: 2px solid rebeccapurple;
+    padding: 15px;
+    grid-area: 3/2/12/3;
+    font-size: smaller;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.listObject:hover {
+    background-color: rgba(102, 51, 153, 0.297);
+}
+
+.imgContainer{
+    display: grid;
+    
+}
+.mainDescriptionInfo{
+    grid-area: 2/5/6/9;
+}
+#big {
+    grid-area: 1/1/6/5;
+    width: 100%;
+    height: 100%;
+    object-fit:scale-down;
+    margin-bottom: 10px; 
+    display: block;
+    background-size: cover;
+    margin: auto
+}
+#thumbs {
+    grid-area: 6/1/7/5;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5,40px);
+}
+#thumbs a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#x {
+    grid-area: 1/8/1/8;
+    margin: 0 0 0 50px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid rebeccapurple;
+}
+
+#x:hover {
+    background-color: rgba(102, 51, 153, 0.297);
+    color: white;
+}
+a {
+    text-decoration: none;
+}
+/* drag */
+.selected {
+    opacity: 0.6;
+  }

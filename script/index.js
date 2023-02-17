@@ -41,7 +41,13 @@ class ListController {
         applyButton.addEventListener('click', async (ev) => {
             const count = document.querySelector('#input-count');
             await this.fetch(count.value);
+            if(count.value <= this.products.length){
+            document.querySelector(".mainContainer").style.gridTemplateRows = '80px 40px repeat('+ count.value +', 40px)';
             this.render();
+            }
+            else{
+                alert('let me lower number');
+            }
         });
     }
 
@@ -50,6 +56,7 @@ class ListController {
         applyButton.addEventListener('click', async (ev) => {
             const count = document.querySelector('#input-count');
             await this.fetch(10);
+            document.querySelector(".mainContainer").style.gridTemplateRows = '80px 40px repeat('+ 10  +', 40px)';
             this.render();
         });
     }
@@ -59,6 +66,8 @@ class ListController {
         applyButton.addEventListener('click', async (ev) => {
             this.clearListItems();
             this.clearDescrption();
+            document.querySelector(".mainContainer").style.gridTemplateRows = '80px 40px repeat('+ 10  +', 40px)';
+
         });
     }
 
@@ -80,7 +89,7 @@ class ListController {
         });
     }
 
-    addHeaderListeners() {
+        addHeaderListeners() {
         this.addApplyListener();
         this.addStartListener();
         this.addClearListener();
@@ -115,11 +124,12 @@ class ListController {
         </div>
 
         <div class = 'mainDescriptionInfo'> 
-        <div> ${this.products[n].brand} </div>
-        <div> ${this.products[n].category} </div>
-        <div> ${this.products[n].title} </div>
-        <div> ${this.products[n].description} </div>
-        <div> ${this.products[n].price} $</div>
+        <div> brand: ${this.products[n].brand} </div>
+        <div> category: ${this.products[n].category} </div>
+        <div> title: ${this.products[n].title} </div>
+        <div> description: ${this.products[n].description} </div>
+        <div> rating: ${this.products[n].rating} </div>
+        <div> price: ${this.products[n].price} $</div>
         </div>
 
         `
@@ -162,7 +172,7 @@ main().then(() => {
     var big = document.getElementById('big');
     console.log(big);
     for (var i = 0; i < thumbs.length; i++) {
-        thumbs[i].addEventListener('mouseover', function (e) {
+        thumbs[i].addEventListener('click', function (e) {
             e.preventDefault();
             big.src = this.href;
         });
@@ -210,63 +220,3 @@ async function dragAndDrop() {
 dragAndDrop().then(() => {  
 
 });
-//Счетчик объектов для перемещения description
-// var parent = document.getElementsByClassName("list")[0];
-// parent.onmouseover = function (e) {
-//     var e = e || event;
-//     var target = e.target || e.srcElement;
-//     for (var i = 0; i < parent.children.length; i++) {
-//         if (parent.children[i] == target) {listPlace = i;}
-//     }
-// }
-// //Перемещение Description
-// function changeItemDescription(h) {
-
-//     document.getElementById('Description').style.backgroundColor = "rgba(102, 51, 153, 0.297)";
-//     document.getElementById('Description').style.gridArea = h + 3 + '/2/' + (h + 12) + '/3';
-
-// }
-// //Св-ва объектов Листа
-// function changeListItem(n, description) {
-//     let object = document.getElementById(n);
-//     description.addEventListener('mouseover', function () {
-//         object.style.backgroundColor = "rgba(102, 51, 153, 0.297)";
-//     });
-//     description.addEventListener('mouseout', function () {
-//         object.style.backgroundColor = "";
-//     });
-//     document.getElementById('x').addEventListener('click', function () {
-//         object.style.backgroundColor = "";
-//     });
-
-// }
-// function addSortedListItem(title, i){
-//         let targetDiv = document.querySelector(".list");
-//         let newDiv = document.createElement("div");
-//         newDiv.className = 'listObject';
-//         newDiv.id = i;
-//         newDiv.onmouseover = () => makeListDescription(newDiv.id);
-//         newDiv.draggable = 'true';
-//         newDiv.innerHTML = '<a>' + title[i] + '</a>';
-//         targetDiv.append(newDiv);
-//     }
-
-// //Закрытие с крестика
-// function removeDescriptionX() {
-//     const removeDescription = document.querySelector(".listObjectDescription");
-//     if (removeDescription == null) { }
-//     else {
-//         removeDescription.remove();
-//     }
-// }
-// //Галерея фото в Description
-// function imgChanging() {
-//     var thumbs = document.querySelectorAll('#thumbs > a');
-//     var big = document.getElementById('big');
-//     for (var i = 0; i < thumbs.length; i++) {
-//         thumbs[i].addEventListener('mouseover', function (e) {
-//             e.preventDefault();
-//             big.src = this.href;
-//         });
-//     }
-// }

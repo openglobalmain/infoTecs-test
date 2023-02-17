@@ -49,16 +49,16 @@ class ListController {
             if(parsedCount < 1) {
                 alert("Enter positive count of items");
             }
-
-            if(parsedCount > 100) {
+            else if(parsedCount > 100){
                 alert("Enter count lower than 100");
             }
-
-            await this.fetch(parsedCount);
+            else{
+               await this.fetch(parsedCount);
 
 
             document.querySelector(".mainContainer").style.gridTemplateRows = '80px 40px repeat('+ parsedCount +', 40px)';
-            this.render();
+            this.render(); 
+            }            
         });
     }
 

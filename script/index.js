@@ -40,14 +40,25 @@ class ListController {
         const applyButton = document.querySelector('#apply-button');
         applyButton.addEventListener('click', async (ev) => {
             const count = document.querySelector('#input-count');
-            await this.fetch(count.value);
-            if(count.value <= this.products.length){
-            document.querySelector(".mainContainer").style.gridTemplateRows = '80px 40px repeat('+ count.value +', 40px)';
+            if(!count || !count.value) {
+                return;
+            }
+
+            const parsedCount = parseInt(count.value)
+
+            if(parsedCount < 1) {
+                alert("Enter positive count of items");
+            }
+
+            if(parsedCount > 100) {
+                alert("Enter count lower than 100");
+            }
+
+            await this.fetch(parsedCount);
+
+
+            document.querySelector(".mainContainer").style.gridTemplateRows = '80px 40px repeat('+ parsedCount +', 40px)';
             this.render();
-            }
-            else{
-                alert('let me lower number');
-            }
         });
     }
 

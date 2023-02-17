@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .mainContainer {
     width: 700px;
     margin: 0 auto;
@@ -55,17 +59,22 @@
     padding: 10px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    /* cursor: move; */
+    cursor: move;
 }
 
-.listObjectDescription {
+.objectDescription{
+    position: sticky;
+    top:100px;
+}
+
+.description {
     display: grid;
-    grid-template-columns: repeat(8,1fr);
+    grid-template-columns: repeat(7,1fr);
     grid-template-rows: repeat(7, 40px);
     gap: 10px;
-    border: 2px solid rebeccapurple;
+    border: 1px solid rebeccapurple;
     padding: 15px;
-    grid-area: 3/2/12/3;
+    grid-area: 4/2/12/3;
     font-size: smaller;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -124,9 +133,7 @@
     background-color: rgba(102, 51, 153, 0.297);
     color: white;
 }
-a {
-    text-decoration: none;
-}
+
 /* drag */
 .selected {
     opacity: 0.6;

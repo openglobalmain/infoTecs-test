@@ -40,6 +40,7 @@ class ListController {
         const applyButton = document.querySelector('#apply-button');
         applyButton.addEventListener('click', async (ev) => {
             const count = document.querySelector('#input-count');
+<<<<<<< Updated upstream
             if(!count || !count.value) {
                 return;
             }
@@ -51,6 +52,12 @@ class ListController {
             }
             else if(parsedCount > 100){
                 alert("Enter count lower than 100");
+=======
+            await this.fetch(Math.round(count.value));
+            if(Math.round(count.value) <= this.products.length){
+            document.querySelector(".mainContainer").style.gridTemplateRows = '80px 40px repeat('+ Math.round(count.value) +', 40px)';
+            this.render();
+>>>>>>> Stashed changes
             }
             else{
                await this.fetch(parsedCount);
